@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import Lists from '../Listas/Lists'
 import '../../index.css'
 

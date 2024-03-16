@@ -2,11 +2,9 @@ import React from "react";
 import '../../index.css'
 
 type Props = {
-  // itemCur: string[];
   classDiv?: string,
   classUl?: string,
   iconBoolean: boolean
-  // links?: string[]
 };
 
 type ListsHeader = {
