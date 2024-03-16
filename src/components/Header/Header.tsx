@@ -18,9 +18,9 @@ export default function Header() {
   }
   return (
     <>
-      <header className='px-5 bg-[#222228] h-full flex flex-col '>
+      <header className='px-5 bg-[#222228] h-full flex flex-col'>
         <div className='flex justify-between items-center h-24'>
-          <LogoCompany source="../../src/assets/logo-company.svg" />
+          <LogoCompany source="../../../public/assets/logo-company.svg" />
           <DesktopNav />
           <Hamburguer handleMenu={handleMenuNav} />
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import '../../index.css'
 
-import Icons from './../../Icons/Header/Icons';
+import Icons from '../../../public/Icons/Header/Icons';
 type Props = {
   classDiv?: string,
   classUl?: string,
