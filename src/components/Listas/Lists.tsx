@@ -1,6 +1,7 @@
 import React from "react";
 import '../../index.css'
 
+import Icons from './../../Icons/Header/Icons';
 type Props = {
   classDiv?: string,
   classUl?: string,
@@ -16,7 +17,7 @@ type ListsHeader = {
 const ListHeader: ListsHeader = {
   content: ['Início', 'Sobre', 'Dicas e Cuidados', 'Contato'],
   links: ['#', '#', '#', '#'],
-  icons: [],
+  icons: Icons(),
 }
 
 export default function Lists({ classDiv, classUl, iconBoolean }: Props) {
@@ -27,7 +28,7 @@ export default function Lists({ classDiv, classUl, iconBoolean }: Props) {
         <ul className={classUl}>
           {content.map((item, index) => {
 
-            iconBoolean && icons?.push(`../../src/Icons/Header/icon-${index + 1}.png`)
+            // iconBoolean && icons?.push(`../../src/Icons/Header/icon-${index + 1}.png`)
             const isLastItem = index === content.length - 1;
             const classNames = isLastItem ? `item-animated p-2 rounded-full text-center` : "";
             return (
