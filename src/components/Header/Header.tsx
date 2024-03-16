@@ -20,7 +20,7 @@ export default function Header() {
     <>
       <header className='px-5 bg-[#222228] h-full flex flex-col'>
         <div className='flex justify-between items-center h-24'>
-          <LogoCompany source="../../../public/assets/logo-company.svg" />
+          <LogoCompany source="/assets/logo-company.svg" />
           <DesktopNav />
           <Hamburguer handleMenu={handleMenuNav} />
         </div>
