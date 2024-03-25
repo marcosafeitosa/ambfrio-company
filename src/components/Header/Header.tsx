@@ -1,35 +1,28 @@
-import { useState } from 'react';
+import Listas from "../List/Listas";
+import { useRef } from 'react';
 import '../../index.css'
-import DesktopNav from './DesktopNav'
-// import Mobile from './Mobile'
-import Hamburguer from '../Hamburguer/Hamburguer';
-import LogoCompany from '../LogoCompany';
-import Mobile from './Mobile';
 
 export default function Header() {
 
-  const [menuMobile, setMenuMobile] = useState<boolean | null>(null);
-  // useEffect(() => {
-  //   console.log(menuMobile);
-  // }, [menuMobile]);
+  const htmlHeader = useRef<HTMLElement | null>(null)
+  const buttonEl = useRef<HTMLButtonElement | null>(null)
 
-  const handleMenuNav = function (stateNavHamburguer: boolean) {
-    setMenuMobile(stateNavHamburguer)
+  const showNavToggle = function () {
+    htmlHeader.current!.classList.toggle('showNav')
+    // htmlHeader.current!.style.left = '100%'
   }
+
+
   return (
     <>
-      <header className='px-5 bg-[#222228] h-full flex flex-col'>
-        <div className='flex justify-between items-center h-24'>
-          <LogoCompany source="/assets/logo-company.svg" />
-          <DesktopNav />
-          <Hamburguer handleMenu={handleMenuNav} />
-        </div>
-        {menuMobile &&
-          <Mobile />
-        }
-
-        {/* <img src="../../src/Icons/Header/icon-1.png" alt="" /> */}
+      <header className="block absolute -left-full text-min-vw h-screen duration-200 ease-in-out md:hidden" ref={htmlHeader}>
+        <nav className="bg-[#1F1E26] box-border p-3 text-[#ECEEF2] h-full w-[calc(100vw-100px)] flex flex-col gap-10">
+          <h1 className="text-lg">Painel</h1>
+          {/* prettier-ignore */}
+          <Listas isFocusable={showNavToggle} title={['Home', 'Sobre', 'Dicas p/ produto', 'Serviços', "Calculo BTU's", 'Contato']} url={['#home', '#sobre', '#dicasproduto', '#servicos', '#calculobtus', '#contato']} />
+        </nav>
       </header>
+      <button ref={buttonEl} onClick={showNavToggle} className="absolute right-0">abrir</button>
     </>
-  )
+  );
 }

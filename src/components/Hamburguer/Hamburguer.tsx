@@ -13,7 +13,7 @@ export default function Hamburguer({ handleMenu }: Props) {
 
   return (
     <>
-      <div className='block min-[790px]:hidden'>
+      <div className='flex min-[790px]:hidden'>
         <input id="checkbox" ref={inputEl} type="checkbox" onClick={isChecked} />
         <label className="toggle" htmlFor="checkbox">
           <div id="bar1" className="bars bg-black"></div>

@@ -5,8 +5,8 @@ type Logo = {
 export default function LogoCompany({ source }: Logo) {
   return (
     <>
-      <div className="flex items-center">
-        <img src={source} alt="logo-company" className="h-16" />
+      <div className="flex items-center w-full">
+      <img src={source} alt="logo-company" className="h-full"/>
       </div>
     </>
   )
