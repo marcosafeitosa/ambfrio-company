@@ -1,6 +1,8 @@
 import Listas from "../List/Listas";
 import { useEffect, useRef, useState } from 'react';
 import '../../index.css'
+import Hamburguer from "../Hamburguer/Hamburguer";
+import LogoCompany from "../Logo";
 
 export default function Header() {
 
@@ -41,21 +43,26 @@ export default function Header() {
 
   return (
     <>
-      {visibilityHeader && <div className="absolute w-full h-full bg-slate-500 md:hidden" onClick={hiddenHeader}></div>}
-      <header className="block absolute -left-full  h-screen duration-200 ease-in-out md:hidden" ref={htmlHeader}>
+      {visibilityHeader && <div className="absolute w-full h-full md:hidden" onClick={hiddenHeader}></div>}
+
+      <header className="block absolute -left-full h-screen duration-200 ease-in-out md:hidden" ref={htmlHeader}>
         <nav className="bg-[#1F1E26] box-border p-3 text-[#ECEEF2] h-full overflow-y-auto custom-scrollbar w-[calc(100vw-100px)] flex flex-col gap-10">
           <h1 className="text-lg">Painel</h1>
           {/* prettier-ignore */}
           <Listas isFocusable={isFocusable} title={['Home', 'Sobre', 'Dicas p/ produto', 'Serviços', "Calculo BTU's", 'Contato']} url={['#home', '#sobre', '#dicasproduto', '#servicos', '#calculobtus', '#contato']} />
         </nav>
       </header>
-      <div className="absolute right-3 top-3 md:hidden">
-        <label className="burger" htmlFor="burger" >
-          <input type="checkbox" id="burger" ref={elMenu} onClick={handleNavToggle} />
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
+
+      <div className="font-raleway md:hidden">
+        <div className="flex justify-between items-center px-3 h-16">
+          <LogoCompany source="/assets/logo-company.svg" />
+          <div className="flex justify-between items-center gap-4 h-full">
+            <span className="text-xs">HOME</span>
+            <span className="inline-block bg-[#e5e7eb] w-[0.6px] h-full"></span>
+            <Hamburguer handleClickMenu={handleNavToggle} ref={elMenu} />
+          </div>
+        </div>
+        <hr className="w-full" />
       </div>
     </>
   );
