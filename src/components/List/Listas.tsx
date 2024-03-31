@@ -28,7 +28,7 @@ export default function Listas({ title, url, isFocusable }: Lista) {
         {title.map((listTitle, i) => {
           // console.log(Icons()[i] ? Icons()[i] : 'Imagem não encontrada.')
           return url[i] ?
-            <li key={i} ref={el => arr.current[i] = el} onClick={() => handleItemClick(i)} className={`first:${focusedIndex === 0 ? 'bg-[#161517]' : ''} flex items-center px-4 gap-2 py-3 rounded-lg ${focusedIndex === i ? "bg-[#161517]" : ""
+            <li key={i} ref={el => arr.current[i] = el} onClick={() => handleItemClick(i)} className={`first:${focusedIndex === 0 ? 'bg-[#161517]' : ''} flex items-center px-4 gap-2 py-3 rounded-lg cursor-pointer ${focusedIndex === i ? "bg-[#161517]" : ""
               }`}>
                 <img src={Icons()[i]} alt="icons" className="h-7" />
                 <a href={url[i]} className="relative top-[1.5px]">{listTitle}</a>
