@@ -1,8 +1,8 @@
-type Logo = {
+type LogoCompany = {
   source: string,
 }
 
-export default function LogoCompany({ source }: Logo) {
+export default function Logo({ source }: LogoCompany) {
   return (
     <>
       <div className="flex items-center w-full h-full">

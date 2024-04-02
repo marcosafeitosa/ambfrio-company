@@ -1,11 +1,12 @@
-import Listas from "../List/Listas";
+import Listas from "../../components/List/Listas";
 import { useEffect, useRef, useState } from 'react';
 import '../../index.css'
-import Hamburguer from "../Hamburguer/Hamburguer";
-import { Link } from "react-router-dom";
-// import LogoCompany from "../Logo";
+import Hamburguer from "../../components/Hamburguer/Hamburguer";
+import Logo from "../../components/Logo/Logo";
+// import { Link } from "react-router-dom";
 
-export default function Header() {
+
+export default function Home() {
 
   const [visibilityHeader, setvisibilityHeader] = useState<boolean | null>(false)
   const elMenu = useRef<HTMLInputElement | null>(null)
@@ -41,46 +42,8 @@ export default function Header() {
     })
   }, [])
 
-
-  type Movies = {
-    titulo: string
-    avatar: string
-  }
-
-  const [movies, setMovies] = useState<Movies[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  const loadMovies = async function () {
-    setLoading(true)
-    let response = await fetch('https://api.b7web.com.br/cinema/')
-    let json = await response.json();
-    setLoading(false)
-    setMovies(json)
-    console.log(json)
-  }
-
   return (
     <>
-
-      <button onClick={loadMovies} className="bg-slate-300 p-4">Ver filmes</button>
-      <button className="bg-black text-white p-4"><Link to={`/About`}>About</Link></button>
-      {
-        loading && <svg viewBox="25 25 50 50">
-          <circle r="20" cy="50" cx="50"></circle>
-        </svg>
-      }
-      <div className="h-20 w-20 flex">
-        {movies.map((mov, id) => {
-          return (
-            <>
-              <img key={id} src={mov.avatar} />
-              <p>{mov.titulo}</p>
-            </>
-          )
-        })}
-      </div>
-
-
       {visibilityHeader && <div className="absolute w-full h-full md:hidden" onClick={hiddenHeader}></div>}
 
       <header className="block absolute -left-full h-screen duration-200 ease-in-out md:hidden" ref={htmlHeader}>
@@ -93,7 +56,7 @@ export default function Header() {
 
       <div className="font-raleway md:hidden">
         <div className="flex justify-between items-center px-3 h-16">
-          {/* <LogoCompany source="/assets/logo-company.svg" /> */}
+          <Logo source="/assets/logo-company.svg" />
           <div className="flex justify-between items-center gap-4 h-full">
             <span className="text-xs">HOME</span>
             <span className="inline-block bg-[#e5e7eb] w-[0.6px] h-full"></span>
@@ -103,5 +66,6 @@ export default function Header() {
         <hr className="w-full" />
       </div>
     </>
+
   );
 }
